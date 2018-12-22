@@ -12173,6 +12173,38 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="203-remove-linked-list-elements">203. Remove Linked List Elements</h1>
+<p>Remove all elements from a linked list of integers that have value <strong>val</strong>.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input:  1-&gt;2-&gt;6-&gt;3-&gt;4-&gt;5-&gt;6, val = 6
+Output: 1-&gt;2-&gt;3-&gt;4-&gt;5
+</code></pre><hr>
+<pre><code class="lang-go"><span class="hljs-comment">/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */</span>
+<span class="hljs-keyword">func</span> removeElements(head *ListNode, val <span class="hljs-keyword">int</span>) *ListNode {
+    <span class="hljs-comment">// &#x5C06;&#x94FE;&#x8868;&#x4E2D;&#x6240;&#x6709;&#x503C;&#x4E0D;&#x7B49;&#x4E8E;val&#x7684;&#x5143;&#x7D20;&#x653E;&#x5230;res&#x5217;&#x8868;&#x4E2D;</span>
+    <span class="hljs-keyword">var</span> res []<span class="hljs-keyword">int</span>
+    <span class="hljs-keyword">for</span> head != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">if</span> head.Val != val {
+            res = <span class="hljs-built_in">append</span>(res, head.Val)
+        }
+        head = head.Next
+    }
+    <span class="hljs-comment">// &#x5C06;res&#x4E2D;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x4E32;&#x6210;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x8FD4;&#x56DE;</span>
+    dummy := <span class="hljs-built_in">new</span>(ListNode)
+    pre := dummy
+    <span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> res {
+        node := &amp;ListNode{Val: v}
+        pre.Next = node
+        pre = pre.Next
+    }
+    <span class="hljs-keyword">return</span> dummy.Next
+}
+</code></pre>
 
                                 
                                 </section>
@@ -12216,7 +12248,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"203. Remove Linked List Elements","level":"1.204","depth":1,"next":{"title":"204. Count Primes","level":"1.205","depth":1,"path":"204. Count Primes.md","ref":"204. Count Primes.md","articles":[]},"previous":{"title":"202. Happy Number","level":"1.203","depth":1,"path":"202. Happy Number.md","ref":"202. Happy Number.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"203. Remove Linked List Elements.md","mtime":"2018-12-21T17:11:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T18:00:20.856Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"203. Remove Linked List Elements","level":"1.204","depth":1,"next":{"title":"204. Count Primes","level":"1.205","depth":1,"path":"204. Count Primes.md","ref":"204. Count Primes.md","articles":[]},"previous":{"title":"202. Happy Number","level":"1.203","depth":1,"path":"202. Happy Number.md","ref":"202. Happy Number.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"203. Remove Linked List Elements.md","mtime":"2018-12-22T02:42:03.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-22T06:14:00.838Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

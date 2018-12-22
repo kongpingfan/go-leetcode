@@ -12173,6 +12173,42 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="206-reverse-linked-list">206. Reverse Linked List</h1>
+<p>Reverse a singly linked list.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL
+Output: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL
+</code></pre><p><strong>Follow up:</strong></p>
+<p>A linked list can be reversed either iteratively or recursively. Could you implement both?</p>
+<hr>
+<pre><code class="lang-go"><span class="hljs-comment">/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */</span>
+<span class="hljs-keyword">func</span> reverseList(head *ListNode) *ListNode {
+    <span class="hljs-comment">//&#x904D;&#x5386;&#x94FE;&#x8868;&#xFF0C;&#x5C06;&#x5143;&#x7D20;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x91CC;&#x9762;</span>
+    <span class="hljs-keyword">var</span> arr []<span class="hljs-keyword">int</span>
+    <span class="hljs-keyword">for</span> head != <span class="hljs-literal">nil</span> {
+        arr = <span class="hljs-built_in">append</span>(arr, head.Val)
+        head = head.Next
+    }
+
+    dummy := <span class="hljs-built_in">new</span>(ListNode)
+    pre := dummy
+    <span class="hljs-comment">// go&#x6CA1;&#x6709;&#x597D;&#x7684;reverse&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x80FD;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x4F4E;&#x7EA7;&#x65B9;&#x6CD5;&#x5012;&#x5E8F;&#x904D;&#x5386;&#x4E86;</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-built_in">len</span>(arr) - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i-- {
+        node := <span class="hljs-built_in">new</span>(ListNode)
+        node.Val = arr[i]
+
+        pre.Next = node
+        pre = pre.Next
+    }
+
+    <span class="hljs-keyword">return</span> dummy.Next
+}
+</code></pre>
 
                                 
                                 </section>
@@ -12216,7 +12252,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"206. Reverse Linked List","level":"1.207","depth":1,"next":{"title":"207. Course Schedule","level":"1.208","depth":1,"path":"207. Course Schedule.md","ref":"207. Course Schedule.md","articles":[]},"previous":{"title":"205. Isomorphic Strings","level":"1.206","depth":1,"path":"205. Isomorphic Strings.md","ref":"205. Isomorphic Strings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"206. Reverse Linked List.md","mtime":"2018-12-21T17:11:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T18:00:20.856Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"206. Reverse Linked List","level":"1.207","depth":1,"next":{"title":"207. Course Schedule","level":"1.208","depth":1,"path":"207. Course Schedule.md","ref":"207. Course Schedule.md","articles":[]},"previous":{"title":"205. Isomorphic Strings","level":"1.206","depth":1,"path":"205. Isomorphic Strings.md","ref":"205. Isomorphic Strings.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"206. Reverse Linked List.md","mtime":"2018-12-22T00:45:01.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-22T06:14:00.838Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

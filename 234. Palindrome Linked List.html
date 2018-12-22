@@ -12173,6 +12173,39 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="234-palindrome-linked-list">234. Palindrome Linked List</h1>
+<p>Given a singly linked list, determine if it is a palindrome.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: 1-&gt;2
+Output: false
+</code></pre><p><strong>Example 2:</strong></p>
+<pre><code>Input: 1-&gt;2-&gt;2-&gt;1
+Output: true
+</code></pre><p><strong>Follow up:</strong>
+Could you do it in O(n) time and O(1) space?</p>
+<hr>
+<pre><code class="lang-go"><span class="hljs-comment">/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */</span>
+<span class="hljs-keyword">func</span> isPalindrome(head *ListNode) <span class="hljs-keyword">bool</span> {
+    <span class="hljs-comment">// &#x5C06;&#x6240;&#x6709;&#x5143;&#x7D20;&#x653E;&#x5230;res&#x6570;&#x7EC4;&#x4E2D;</span>
+    <span class="hljs-keyword">var</span> res []<span class="hljs-keyword">int</span>
+    <span class="hljs-keyword">for</span> head != <span class="hljs-literal">nil</span> {
+        res = <span class="hljs-built_in">append</span>(res, head.Val)
+        head = head.Next
+    }
+    <span class="hljs-comment">//&#x904D;&#x5386;res&#x6570;&#x7EC4;&#xFF0C;&#x770B;&#x5DE6;&#x53F3;&#x5BF9;&#x5E94;&#x7684;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x662F;&#x5426;&#x76F8;&#x7B49;&#x3002;</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(res)<span class="hljs-number">-1</span>; i++ {
+        <span class="hljs-keyword">if</span> res[i] != res[<span class="hljs-built_in">len</span>(res)<span class="hljs-number">-1</span>-i] {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+}
+</code></pre>
 
                                 
                                 </section>
@@ -12216,7 +12249,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"234. Palindrome Linked List","level":"1.235","depth":1,"next":{"title":"235. Lowest Common Ancestor of a Binary Search Tree","level":"1.236","depth":1,"path":"235. Lowest Common Ancestor of a Binary Search Tree.md","ref":"235. Lowest Common Ancestor of a Binary Search Tree.md","articles":[]},"previous":{"title":"233. Number of Digit One","level":"1.234","depth":1,"path":"233. Number of Digit One.md","ref":"233. Number of Digit One.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"234. Palindrome Linked List.md","mtime":"2018-12-21T17:11:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T18:00:20.856Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"234. Palindrome Linked List","level":"1.235","depth":1,"next":{"title":"235. Lowest Common Ancestor of a Binary Search Tree","level":"1.236","depth":1,"path":"235. Lowest Common Ancestor of a Binary Search Tree.md","ref":"235. Lowest Common Ancestor of a Binary Search Tree.md","articles":[]},"previous":{"title":"233. Number of Digit One","level":"1.234","depth":1,"path":"233. Number of Digit One.md","ref":"233. Number of Digit One.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"234. Palindrome Linked List.md","mtime":"2018-12-22T02:37:19.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-22T06:14:00.838Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

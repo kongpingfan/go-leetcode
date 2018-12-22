@@ -12173,6 +12173,45 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="23-merge-k-sorted-lists">23. Merge k Sorted Lists</h1>
+<p>Merge <em>k</em> sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input:
+[
+  1-&gt;4-&gt;5,
+  1-&gt;3-&gt;4,
+  2-&gt;6
+]
+Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6
+</code></pre><hr>
+<pre><code class="lang-go"><span class="hljs-comment">/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */</span>
+<span class="hljs-keyword">func</span> mergeKLists(lists []*ListNode) *ListNode {
+    <span class="hljs-comment">// &#x628A;&#x6240;&#x6709;&#x94FE;&#x8868;&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;&#x653E;&#x5230;res&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x5BF9;&#x8FD9;&#x4E2A;&#x6570;&#x7EC4;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x3002;</span>
+    <span class="hljs-keyword">var</span> res []<span class="hljs-keyword">int</span>
+    <span class="hljs-keyword">for</span> _, list := <span class="hljs-keyword">range</span> lists {
+        <span class="hljs-keyword">for</span> list != <span class="hljs-literal">nil</span> {
+            res = <span class="hljs-built_in">append</span>(res, list.Val)
+            list = list.Next
+        }
+    }
+    sort.Ints(res)
+
+    <span class="hljs-comment">// &#x628A;&#x6570;&#x7EC4;&#x4E2D;&#x6240;&#x6709;&#x5143;&#x7D20;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x4E32;&#x6210;&#x4E00;&#x4E2A;&#x94FE;&#x8868;&#x8FD4;&#x56DE;&#x3002;</span>
+    dummy := <span class="hljs-built_in">new</span>(ListNode)
+    pre := dummy
+    <span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> res {
+        node := &amp;ListNode{Val: v}
+        pre.Next = node
+        pre = pre.Next
+    }
+    <span class="hljs-keyword">return</span> dummy.Next
+}
+</code></pre>
 
                                 
                                 </section>
@@ -12216,7 +12255,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"23. Merge k Sorted Lists","level":"1.24","depth":1,"next":{"title":"24. Swap Nodes in Pairs","level":"1.25","depth":1,"path":"24. Swap Nodes in Pairs.md","ref":"24. Swap Nodes in Pairs.md","articles":[]},"previous":{"title":"22. Generate Parentheses","level":"1.23","depth":1,"path":"22. Generate Parentheses.md","ref":"22. Generate Parentheses.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"23. Merge k Sorted Lists.md","mtime":"2018-12-21T17:11:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T18:00:20.856Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"23. Merge k Sorted Lists","level":"1.24","depth":1,"next":{"title":"24. Swap Nodes in Pairs","level":"1.25","depth":1,"path":"24. Swap Nodes in Pairs.md","ref":"24. Swap Nodes in Pairs.md","articles":[]},"previous":{"title":"22. Generate Parentheses","level":"1.23","depth":1,"path":"22. Generate Parentheses.md","ref":"22. Generate Parentheses.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"23. Merge k Sorted Lists.md","mtime":"2018-12-22T02:28:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-22T06:14:00.838Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
